@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="color:rgb(0, 0, 0)">
+        <form action="/predict" method="post">
+            <h2>Predict the price of your car!</h2>
+            <b>Brand<b><select name="Brand" required = "required">
+                <option value=0>opel</option>
+                <option value=1>chevrolet</option>
+                <option value=2>datsun</option>
+                <option value=3>mitsubishi</option>
+                <option value=4>fiat</option>
+                <option value=5>nissan</option>
+                <option value=6>renault</option>
+                <option value=7>maruti</option>
+                <option value=8>hyundai</option>
+                <option value=9>honda</option>
+                <option value=10>tata</option>
+                <option value=11>ford</option>
+                <option value=12>volkswagen</option>
+                <option value=13>skoda</option>
+                <option value=14>ssangyong</option>
+                <option value=15>mahindra</option>
+                <option value=16>toyota</option>
+                <option value=17>isuzu</option>
+                <option value=18>bmw</option>
+                <option value=19>mercedes</option>
+                <option value=20>volvo</option>
+                <option value=21>jeep</option>
+                <option value=22>audi</option>
+                <option value=23>kia</option>
+                <option value=24>mg</option>
+                <option value=25>jaguar</option>
+            </select>
+            <br>
+            <b>Year</b>
+            <input id="first" name="Year" type="number "> <br>  
+            <b>What is the Showroom Price?(In lakhs)</b><input id="second" name="Present_Price" required="required"><br>
+            <b>How Many Kilometers Drived?</b><input id="third" name="Kms_Driven" required="required"><br>
+            <b>How much owners previously had the car ?</b><input id="fourth" name="Owner" required="required"><br>
+            <b>What Is the Fuel type?</b><select name="Fuel_Type_Petrol" id="fuel" required="required">
+                <option value=0>Petrol & LPG</option>
+                <option value=1>Petrol & CNG</option>
+                <option value=2>Petrol</option>
+                <option value=4>Diesel</option>
+                <option value=3>Electric</option>
+            </select><br>
+            <b>Body type</b><select name="Body_type" id="resea" required="required">
+                <option value=0>Hatchback</option>
+                <option value=1>Sedan</option>
+                <option value=2>SUV</option>
+                <option value=3>Luxury Sedan</option>
+                <option value=4>Luxury SUV</option>
+            </select><br>
+            <b>Transmission type</b><select name="Transmission_Mannual" id="research" required="required">
+                <option value=0>Manual Car</option>
+                <option value=1>Automatic Car</option>
+            </select><br>
+            <b>Warranty available ?</b><select name="Warranty" required = "required">
+                <option value=1>Yes</option>
+                <option value=2>No</option>
+            </select><br>
+            <b>City</b><select name="City" required = "required">
+
+                <option value=0>Bengaluru</option>
+                <option value=1>Chennai</option>
+                <option value=2>Faridabad</option>
+                <option value=3>Ghaziabad</option>
+                <option value=4>Gurgao</option>
+                <option value=5>Hyderabad</option>
+                <option value=6>Kolkata</option>
+                <option value=7>Lucknow</option>
+                <option value=8>Mumbai</option>
+                <option value=9>New Delhi</option>
+                <option value=10>Nodia</option>
+                <option value=11>Pune</option>
+            </select>
+            <br><br><button id="sub" type="submit ">Calculate the Selling Price</button>
+            <br>
+
+
+
+
+        </form>
+
+
+
+        <br><br><h3>{{ prediction_text }}<h3>
+    </div>
+
+
+
+
+</body>
+
+</html>
