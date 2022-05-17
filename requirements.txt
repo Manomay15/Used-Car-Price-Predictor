@@ -2,5 +2,4 @@ certifi==2021.10.8
 gunicorn==20.1.0
 wincertstore==0.2
 flask==1.1.2
-python==3.8.8
 werkzeug==1.0.1
