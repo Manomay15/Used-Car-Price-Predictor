@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import pickle
+import sklearn
 app = Flask(__name__)
 model = pickle.load(open('linear_regression.pkl', 'rb'))
 
