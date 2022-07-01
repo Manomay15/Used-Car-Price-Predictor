@@ -33,14 +33,14 @@ def predict():
         input = [[car_name, Year, Fuel_Type, Kms_Driven, Body_type, Transmission, Owner, Present_Price, warranty]]
         for i in city_arr:
             input[0].append(i)
-        print(input)
+        # print(input)
         prediction_lr = model_lr.predict(input)
         prediction_gbr = model_gbr.predict(input)
         prediction_nn = model_nn.predict(input)
         output_lr = round(prediction_lr[0], 2)
         output_gbr = round(prediction_gbr[0], 2)
         output_nn = round(prediction_nn[0][0], 2)
-        print(output_nn)
+        # print(output_nn)
         if output_lr < 0:
             return render_template('index.html', prediction_texts="Sorry you cannot sell this car")
         else:
