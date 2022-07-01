@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request
 import pickle
 import sklearn
+from tensorflow import keras
+
 app = Flask(__name__)
-model = pickle.load(open('linear_regression.pkl', 'rb'))
-
-
+model_lr = pickle.load(open('linear_regression.pkl', 'rb'))
+model_gbr = pickle.load(open('gbr.pkl', 'rb'))
+model_nn = keras.models.load_model('neural_net.h5')
 @app.route('/', methods=['GET'])
 def Home():
     # return render_template('index.html', cities=cities)
@@ -32,12 +34,17 @@ def predict():
         for i in city_arr:
             input[0].append(i)
         print(input)
-        prediction = model.predict(input)
-        output = round(prediction[0], 2)
-        if output < 0:
+        prediction_lr = model_lr.predict(input)
+        prediction_gbr = model_gbr.predict(input)
+        prediction_nn = model_nn.predict(input)
+        output_lr = round(prediction_lr[0], 2)
+        output_gbr = round(prediction_gbr[0], 2)
+        output_nn = round(prediction_nn[0][0], 2)
+        print(output_nn)
+        if output_lr < 0:
             return render_template('index.html', prediction_texts="Sorry you cannot sell this car")
         else:
-            return render_template('index.html', prediction_text="You can sell the Car at ₹{} ".format(output))
+            return render_template('index.html', prediction_text_lr="Linear Regression: You can sell the Car at ₹{} ".format(output_lr), prediction_text_gbr="Gradient Boosting Regressor: You can sell the Car at ₹{} ".format(output_gbr), prediction_text_nn="Neural Networks: You can sell the Car at ₹{} ".format(output_nn))
     else:
         return render_template('index.html')
 
